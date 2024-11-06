@@ -21,49 +21,58 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            title: Text("facebook",
+        body: CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          title: Text(
+            "facebook",
             style: TextStyle(
               color: Palette.facebookBlue,
               fontSize: 28,
               fontWeight: FontWeight.bold,
               letterSpacing: -1.2,
             ),
+          ),
+          centerTitle: false,
+          floating: true,
+          actions: [
+            CircleButton(
+              icon: Icons.search,
+              iconSize: 30,
+              onTap: () => print("search button pressed"),
             ),
-            centerTitle: false,
-            floating: true,
-            actions: [
-             CircleButton(icon: Icons.search, iconSize: 30, onTap: ()=> print("search button pressed"),),
-             CircleButton(icon: MdiIcons.facebookMessenger, iconSize: 30, onTap: ()=> print("facebook message button pressed"),),
-            ],
+            CircleButton(
+              icon: MdiIcons.facebookMessenger,
+              iconSize: 30,
+              onTap: () => print("facebook message button pressed"),
             ),
-            SliverToBoxAdapter(
-              child: CreatePostContainer(currentUser: currentUser)
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
-              sliver: SliverToBoxAdapter(
-                child: Rooms(onlineUsers: onlineUsers),
-              ),
-            ),
-             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-              sliver: SliverToBoxAdapter(
-                child: Stories(currentUser: currentUser, stories: stories),
-              ),
-            ),
-            SliverList(delegate: SliverChildBuilderDelegate((
-             context,index
-            ){
+          ],
+        ),
+        SliverToBoxAdapter(
+            child: CreatePostContainer(currentUser: currentUser)),
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+          sliver: SliverToBoxAdapter(
+            child: Rooms(onlineUsers: onlineUsers),
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+          sliver: SliverToBoxAdapter(
+            child: Stories(currentUser: currentUser, stories: stories),
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
               final Post post = posts[index];
               return PostContainer(post: post);
-            }
-            ),
-            )
-        ],
-      )
-    );
+            },
+            childCount:
+                posts.length,
+          ),
+        ),
+      ],
+    ));
   }
 }
