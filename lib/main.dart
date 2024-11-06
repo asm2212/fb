@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tg/config/palette.dart';
+import 'package:tg/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter lite',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+       primarySwatch: Colors.blue, // Set your favorite color here
+       visualDensity: VisualDensity.adaptivePlatformDensity,
+       scaffoldBackgroundColor: Palette.scaffold
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const HomeScreen(),
     );
   }
 }
