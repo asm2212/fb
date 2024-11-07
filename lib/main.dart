@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tg/config/palette.dart';
 import 'package:tg/screens/home_screen.dart';
+import 'package:tg/screens/tab_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
        visualDensity: VisualDensity.adaptivePlatformDensity,
        scaffoldBackgroundColor: Palette.scaffold
       ),
-      home: const HomeScreen(),
+      home: const TabScreen(),
     );
   }
 }

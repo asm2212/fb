@@ -3,7 +3,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:tg/config/palette.dart';
 import 'package:tg/data/data.dart';
 import 'package:tg/models/post_model.dart';
-import 'package:tg/models/user_model.dart';
 import 'package:tg/widgets/circle_button.dart';
 import 'package:tg/widgets/create_post_container.dart';
 import 'package:tg/widgets/post_container.dart';
